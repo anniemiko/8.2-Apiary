@@ -1,0 +1,79 @@
+FORMAT: 1A
+HOST:  http://polls.apiblueprint.org/
+
+# Majestic API
+
+Majestic API is a simple API allowing customers to view menu items and order them.
+
+## Dishes Collection [/dishes]
+
+### List All Dishes [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "timestamp": "2015-08-05T08:40:51.620Z",
+                "dishes": [
+                    {
+                        "title": "red curry",
+                        "id": 2048
+                    }, {
+                        "title": "spring rolls",
+                        "id": 1024
+                    }, {
+                        "title": "sticky rice",
+                        "id": 512
+                    }, {
+                        "title": "thai ice tea",
+                        "id": 256
+                    }
+                ]
+            }
+        ]
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
